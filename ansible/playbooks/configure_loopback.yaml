@@ -1,8 +1,14 @@
 ---
 - name: Configure Loopback Interfaces
-  hosts: ios_xe_routers
+  hosts: ios_xe_routers                 # This is the group of routers defined in your inventory file
   gather_facts: false
   connection: network_cli
+
+#############
+# " ansible-playbook -i inventory/inventory.yaml configure_loopback.yaml --ask-vault-pass "
+# The command above will prompt you for the vault password to decrypt the secrets.yml file.
+#Make sure to replace "inventory/inventory.yaml" with the path to your actual inventory file if it's different.
+#############
 
   tasks:
     - name: Configure Loopback0 Interface Description
